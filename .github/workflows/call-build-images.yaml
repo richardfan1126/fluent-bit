@@ -121,7 +121,6 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
           platforms: linux/amd64
-          target: production
           # Must be disabled to provide legacy format images from the registry
           provenance: false
           push: true
