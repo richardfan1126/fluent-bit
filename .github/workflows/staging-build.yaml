@@ -3,8 +3,8 @@ name: Deploy to staging
 
 on:
   push:
-    tags:
-      - '*'
+    branches:
+      - master
 
   workflow_dispatch:
     inputs:
@@ -71,7 +71,7 @@ jobs:
 
   staging-build-images:
     needs: staging-build-get-meta
-    uses: ./.github/workflows/call-build-images.yaml
+    uses: fluent/fluent-bit/.github/workflows/call-build-images.yaml@master
     with:
       version: ${{ needs.staging-build-get-meta.outputs.version }}
       ref: ${{ inputs.version || github.ref_name }}
